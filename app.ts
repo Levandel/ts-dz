@@ -31,13 +31,15 @@ var TENTHS_LESS_THAN_HUNDRED: string[] = [
  * @returns {string}
  */
 function toWords(number: number|string, asOrdinal?: boolean) : string {
+    var num: number;
     var words: string;
+  
 
     if(typeof number === "string"){
-         var num: number = parseInt(number, 10);
+        num = parseInt(number, 10);
        
     }else{
-        return '' 
+        num = number;
     }
 
     if (!isFinite(num)) {
@@ -56,7 +58,7 @@ function toWords(number: number|string, asOrdinal?: boolean) : string {
 
 function generateWords(number:number, words?:string[]): string {
     var word: string = '';
-    var remainder: number = 0;
+    var remainder: number = number;
 
     // We’re done
     if (number === 0) {
@@ -115,7 +117,7 @@ function generateWords(number:number, words?:string[]): string {
 
     words.push(word);
 
-    return generateWords(remainder, words);
+    return generateWords(remainder, words) ?? '';
 }
 
 module.exports = toWords;
