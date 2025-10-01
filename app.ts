@@ -87,7 +87,7 @@ role: UserRoles
 
 
 interface DummyUsersData {
-    users: UserData
+    users: UserData[]
 }
 
 async function getDummyUsersData() {
