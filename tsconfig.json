@@ -35,9 +35,8 @@
     // Recommended Options
     "strict": true,
     "jsx": "react-jsx",
-       "isolatedModules": true,
+    "isolatedModules": true,
     "verbatimModuleSyntax": true,
- 
     "noUncheckedSideEffectImports": true,
     "strictPropertyInitialization": false,
     "moduleDetection": "force",
