@@ -93,8 +93,16 @@ interface DummyUsersData {
 async function getDummyUsersData() {
     const res = await fetch('https://dummyjson.com/users');
     const data: DummyUsersData = await res.json();
-    
+
+    assertUsersData(data)
     console.log(data.users);
+}
+
+function assertUsersData(obj: unknown): asserts obj is DummyUsersData {
+    if (!!obj && typeof obj === 'object' && 'users' in obj){
+        return
+    }
+    throw new Error('Obj is not User');
 }
 
 getDummyUsersData();
