@@ -91,11 +91,16 @@ interface DummyUsersData {
 }
 
 async function getDummyUsersData() {
-    const res = await fetch('https://dummyjson.com/users');
+    try{
+  const res = await fetch('https://dummyjson.com/users');
     const data: DummyUsersData = await res.json();
 
     assertUsersData(data)
     console.log(data.users);
+    }catch(error){
+        console.error(error)
+    }
+  
 }
 
 function assertUsersData(obj: unknown): asserts obj is DummyUsersData {
